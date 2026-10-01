@@ -4,6 +4,11 @@ Historial de cambios relevantes del proyecto, del más reciente al más antiguo.
 
 ## 2026-10-01
 
+- La web se despliega en Vercel, a petición del usuario: https://arnau-orts-portfolio.vercel.app. El proyecto se llama `arnau-orts-portfolio` y lleva la configuración de Vite detectada automáticamente.
+  - **Despliegue:** por ahora se hace con la CLI (`npx vercel deploy --prod`). La conexión automática con GitHub falló porque falta instalar la app de Vercel en la cuenta de GitHub. Cuando esté instalada, cada `git push` desplegará solo.
+  - **`.gitignore`:** Vercel añadió `.vercel` y `.env*`; `.env.local` contiene un token OIDC que no debe subirse.
+  - **Documentación:** el README y `CLAUDE.md` recogen la dirección pública.
+
 - Se añade LinkedIn (linkedin.com/in/arnauorts, del CV) a la sección de contacto, a petición del usuario. Aparece como botón bajo el correo y se abre en una pestaña nueva, con el aviso para lectores de pantalla (`profile.ts`, `Contact.tsx`). Se actualizan `PRODUCT.md` y `CLAUDE.md`.
 
 - El botón "Contactar" de la primera pantalla lleva a la sección de contacto (`#contact`) en lugar de abrir el correo, a petición del usuario. Ahora lleva una flecha hacia abajo, como "Ver proyectos" (`Hero.tsx`).

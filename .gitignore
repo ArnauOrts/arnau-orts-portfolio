@@ -38,3 +38,6 @@ dist-ssr
 .impeccable/live
 .impeccable/questions
 .impeccable/mocks
+
+.vercel
+.env*

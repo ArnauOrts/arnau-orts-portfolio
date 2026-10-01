@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project state
 
-A personal, bilingual (ES/EN) single-page portfolio for Arnau Orts Brichs. The interface is built and the content in `src/content/` is real, taken from the owner's CV: one project (Velzio), three jobs, education and languages. Published contact: email and LinkedIn. The code lives in the public GitHub repository https://github.com/ArnauOrts/arnau-orts-portfolio (branch `main`).
+A personal, bilingual (ES/EN) single-page portfolio for Arnau Orts Brichs. The interface is built and the content in `src/content/` is real, taken from the owner's CV: one project (Velzio), three jobs, education and languages. Published contact: email and LinkedIn. The code lives in the public GitHub repository https://github.com/ArnauOrts/arnau-orts-portfolio (branch `main`). It is deployed on Vercel (project `arnau-orts-portfolio`, account ortsbrichsarnau-5704) at https://arnau-orts-portfolio.vercel.app; production deploys run with `npx vercel deploy --prod` (`.vercel/` and `.env*` are gitignored).
 
 The visual direction ("kinetic typography": the name and every project in enormous variable grotesk that widens and thickens under the pointer, one flat saturated colour field per project) is recorded in `.impeccable/surfaces/src-app-tsx.md`; durable tokens live in `DESIGN.md`. It replaced the earlier "daylight section" world, which the user rejected.
 
