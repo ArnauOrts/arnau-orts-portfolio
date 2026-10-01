@@ -4,6 +4,10 @@ Historial de cambios relevantes del proyecto, del más reciente al más antiguo.
 
 ## 2026-10-01
 
+- Se corrige el efecto del puntero en los títulos cinéticos (`KineticText.tsx`).
+  - **Fallo:** el efecto guardaba las letras una sola vez al montarse. Si el contenido del título cambiaba sin cambiar su texto, por ejemplo al añadir el enlace o en una recarga en caliente, seguía animando letras que ya no estaban en la página y el hover dejaba de verse.
+  - **Corrección:** ahora busca las letras cada vez que mide, al entrar el puntero o si las anteriores ya no están en la página.
+
 - El título y las capturas de cada proyecto enlazan a su web (`links.demo`) y la abren en una pestaña nueva, a petición del usuario. El enlace "Ver demo" se mantiene.
   - **Título:** `KineticText` admite una prop `link`. El efecto cinético se conserva, y los lectores de pantalla leen el nombre seguido de "(se abre en una pestaña nueva)".
   - **Capturas:** al pasar el ratón suben 4 px y su borde se pone en lima, el acento reservado para hover. Con movimiento reducido no se desplazan.

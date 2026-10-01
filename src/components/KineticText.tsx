@@ -85,13 +85,20 @@ export function KineticText({ as: Tag = 'h2', lines, sizing = 'flow', className,
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (!finePointer || reduceMotion) return
 
-    const letters = Array.from(root.querySelectorAll<HTMLSpanElement>('[data-letter]'))
-    const state = letters.map(() => ({ current: 0, target: 0 }))
+    // Letters are looked up when measuring, not once: the DOM under the root can be
+    // replaced (a link added, a hot reload) without this effect re-running.
+    let letters: HTMLSpanElement[] = []
+    let state: { current: number; target: number }[] = []
     let centres: { x: number; y: number }[] | null = null
     let pointer: { x: number; y: number } | null = null
     let frame = 0
 
     function measureCentres() {
+      const found = Array.from(root!.querySelectorAll<HTMLSpanElement>('[data-letter]'))
+      if (found.length !== letters.length || found.some((letter, i) => letter !== letters[i])) {
+        letters = found
+        state = letters.map(() => ({ current: 0, target: 0 }))
+      }
       centres = letters.map((letter) => {
         const box = letter.getBoundingClientRect()
         return { x: box.left + box.width / 2 + scrollX, y: box.top + box.height / 2 + scrollY }
@@ -123,7 +130,7 @@ export function KineticText({ as: Tag = 'h2', lines, sizing = 'flow', className,
     }
 
     function onEnter() {
-      if (state.every((s) => s.current === 0)) measureCentres()
+      if (state.every((s) => s.current === 0) || letters.some((letter) => !letter.isConnected)) measureCentres()
     }
 
     function onMove(event: PointerEvent) {
