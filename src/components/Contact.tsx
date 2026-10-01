@@ -37,6 +37,7 @@ export function Contact() {
               <a key={link.href} className="btn btn--ghost" href={link.href} target="_blank" rel="noreferrer">
                 {link.label}
                 <ArrowUpRight />
+                <span className="visually-hidden">{t.project.newTab}</span>
               </a>
             ))}
           </div>

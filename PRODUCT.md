@@ -29,7 +29,7 @@ Perfil full-stack: el portfolio tiene que demostrar capacidad de extremo a extre
 - Stack existente: React 19 + TypeScript + Vite (ver CLAUDE.md). La interfaz está construida y el contenido es real (ver Evidence on Hand).
 - Bilingüe **español e inglés**, con selector de idioma. Todo el contenido debe existir en ambos idiomas.
 - Nombre que se muestra: **Arnau Orts Brichs**, con el rol "Desarrollador full-stack / Full-stack developer".
-- Contacto decidido por el usuario: solo el correo (orts.brichs.arnau@gmail.com). No se publican teléfono, LinkedIn, GitHub ni CV descargable.
+- Contacto decidido por el usuario: correo (orts.brichs.arnau@gmail.com) y LinkedIn (linkedin.com/in/arnauorts). No se publican teléfono, GitHub ni CV descargable.
 - Sin decidir: destino de despliegue y dominio, y si habrá blog o artículos.
 
 ## Evidence on Hand

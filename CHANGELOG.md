@@ -4,6 +4,8 @@ Historial de cambios relevantes del proyecto, del más reciente al más antiguo.
 
 ## 2026-10-01
 
+- Se añade LinkedIn (linkedin.com/in/arnauorts, del CV) a la sección de contacto, a petición del usuario. Aparece como botón bajo el correo y se abre en una pestaña nueva, con el aviso para lectores de pantalla (`profile.ts`, `Contact.tsx`). Se actualizan `PRODUCT.md` y `CLAUDE.md`.
+
 - El botón "Contactar" de la primera pantalla lleva a la sección de contacto (`#contact`) en lugar de abrir el correo, a petición del usuario. Ahora lleva una flecha hacia abajo, como "Ver proyectos" (`Hero.tsx`).
 
 - Se quita la etiqueta "Último uso" de las tecnologías porque al usuario no le convence. El orden y el tamaño siguen dependiendo de la recencia. Debajo de cada palabra quedan solo la capa (si la tiene) y los enlaces a donde se usó (`TechSpecimen.tsx`, `derive.ts`, `ui.ts`).

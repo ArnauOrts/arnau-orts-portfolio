@@ -2,8 +2,8 @@ import type { Language, Profile } from './types.ts'
 
 /**
  * Personal data, taken from the owner's CV (October 2026).
- * Published contact is the email only, by the owner's choice: no phone,
- * LinkedIn, GitHub or downloadable CV. Add them to `links` / `cv` if that changes.
+ * Published contact: email and LinkedIn, by the owner's choice. No phone,
+ * GitHub or downloadable CV; add them to `links` / `cv` if that changes.
  */
 export const profile: Profile = {
   name: 'Arnau Orts Brichs',
@@ -16,7 +16,7 @@ export const profile: Profile = {
     en: 'Core experience in Node.js, Java, Angular and React. I build web and mobile applications end to end: the interface, the API and the data.',
   },
   email: 'orts.brichs.arnau@gmail.com',
-  links: [],
+  links: [{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/arnauorts/', display: 'linkedin.com/in/arnauorts' }],
   cv: null,
 }
 
