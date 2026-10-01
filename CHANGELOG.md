@@ -4,6 +4,12 @@ Historial de cambios relevantes del proyecto, del más reciente al más antiguo.
 
 ## 2026-10-01
 
+- El proyecto pasa a git y se publica en GitHub, en el repositorio público https://github.com/ArnauOrts/arnau-orts-portfolio (rama `main`), a petición del usuario.
+  - **Qué no se sube** (`.gitignore`): las herramientas de terceros (`.claude/skills` y `.claude/agents`, que se restauran con `skills-lock.json` y el instalador de impeccable) y los artefactos de trabajo de impeccable (capturas de revisión, críticas y páginas de decisión). El sistema de diseño (`DESIGN.md`, `.impeccable/design.json`) y el contrato de dirección sí se versionan.
+  - **README:** `README.md` sustituye el de la plantilla de Vite por uno propio, que explica el proyecto, cómo arrancarlo y cómo editar el contenido.
+  - **Herramientas:** se instala GitHub CLI (`gh`) en el equipo para crear el repositorio.
+  - **CLAUDE.md:** recoge el repositorio y deja de decir que no hay historial de git.
+
 - Se completa el contenido real a partir de los CV del usuario (`Downloads/CV Arnau Orts.pdf`, fuente de las fechas por decisión del usuario, y las versiones en inglés para las traducciones). Ya no queda contenido de ejemplo.
   - **Perfil** (`src/content/profile.ts`): presentación basada en el resumen del CV y correo como único contacto publicado. El usuario decidió no publicar teléfono, LinkedIn, GitHub ni CV descargable, así que se quitan las ranuras de "CV pendiente".
   - **Proyecto** (`src/content/projects.ts`): solo Velzio, por decisión del usuario, con sus tres capas, el enlace a velziogroup.com y dos capturas reales en `public/projects/`. Las capturas llevan su origen incrustado.

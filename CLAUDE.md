@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project state
 
-A personal, bilingual (ES/EN) single-page portfolio for Arnau Orts Brichs. The interface is built and the content in `src/content/` is real, taken from the owner's CV: one project (Velzio), three jobs, education and languages. The only published contact is the email. Not yet a git repository.
+A personal, bilingual (ES/EN) single-page portfolio for Arnau Orts Brichs. The interface is built and the content in `src/content/` is real, taken from the owner's CV: one project (Velzio), three jobs, education and languages. The only published contact is the email. The code lives in the public GitHub repository https://github.com/ArnauOrts/arnau-orts-portfolio (branch `main`).
 
 The visual direction ("kinetic typography": the name and every project in enormous variable grotesk that widens and thickens under the pointer, one flat saturated colour field per project) is recorded in `.impeccable/surfaces/src-app-tsx.md`; durable tokens live in `DESIGN.md`. It replaced the earlier "daylight section" world, which the user rejected.
 
@@ -12,7 +12,7 @@ Product context (audience, goals, bilingual ES/EN requirement, what content exis
 
 ## Change log (mandatory)
 
-`CHANGELOG.md` is the project's history of relevant changes. It is the only record, since there is no git history yet.
+`CHANGELOG.md` is the project's history of relevant changes and the decisions behind them; git history records the code changes.
 
 - **Before acting:** read `CHANGELOG.md` at the start of every task, before changing anything, so the work builds on decisions already made.
 - **After acting:** add an entry for every relevant change: new or removed features, sections or pages, design or architecture decisions, dependency or config changes, and changes to `PRODUCT.md`, `DESIGN.md` or this file. Typo fixes and purely internal tweaks with no effect on behavior or decisions don't need one.
