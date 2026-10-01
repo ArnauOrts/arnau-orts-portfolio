@@ -2,10 +2,11 @@ import { techIndex } from '../content/derive.ts'
 import { useLocale } from '../i18n/useLocale.ts'
 import './TechSpecimen.css'
 
-/** Technologies as a type specimen: each word is sized by how many places prove it, and links to them. */
+/** Technologies as a type specimen: the more recently used, the bigger; each word links to where it was used. */
 export function TechSpecimen() {
   const { locale, t } = useLocale()
-  const most = Math.max(1, ...techIndex.map((use) => use.sources.length))
+  const newest = Math.max(...techIndex.map((use) => use.lastUsed))
+  const oldest = Math.min(...techIndex.map((use) => use.lastUsed))
 
   return (
     <section className="specimen page" id="stack" aria-labelledby="stack-title">
@@ -18,22 +19,22 @@ export function TechSpecimen() {
 
       <ul className="specimen__list">
         {techIndex.map((use) => {
-          const weight = most > 1 ? (use.sources.length - 1) / (most - 1) : 1
+          const weight = newest > oldest ? (use.lastUsed - oldest) / (newest - oldest) : 1
           return (
             <li key={use.tech} className="specimen__item">
               <span
                 className="specimen__word"
                 style={{
-                  fontSize: `calc(min(var(--text-3xl), 9vw) * ${(0.36 + 0.64 * weight).toFixed(2)})`,
-                  fontVariationSettings: `'wdth' ${Math.round(90 + 30 * weight)}, 'wght' ${Math.round(500 + 350 * weight)}`,
+                  fontSize: `calc(min(var(--text-2xl), 6vw) * ${(0.42 + 0.58 * weight).toFixed(2)})`,
+                  fontVariationSettings: `'wdth' ${Math.round(90 + 20 * weight)}, 'wght' ${Math.round(500 + 350 * weight)}`,
                 }}
               >
                 {use.tech}
               </span>
               <span className="specimen__meta">
-                {use.layers.length > 0 && (
-                  <span className="label">{use.layers.map((layer) => t.layers[layer]).join(' · ')}</span>
-                )}
+                <span className="label">
+                  {[...use.layers.map((layer) => t.layers[layer]), `${t.stack.lastUsed} ${use.lastYear}`].join(' · ')}
+                </span>
                 <span className="specimen__proof">
                   <span className="visually-hidden">{t.stack.usedIn} </span>
                   {use.sources.map((source, i) => (

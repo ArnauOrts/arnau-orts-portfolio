@@ -4,6 +4,12 @@ Historial de cambios relevantes del proyecto, del más reciente al más antiguo.
 
 ## 2026-10-01
 
+- Las tecnologías se ordenan y dimensionan por su uso más reciente, a petición del usuario. Antes contaba el número de sitios donde aparecían, y SQL salía la más grande solo por estar en los tres programas de formación.
+  - **Datos** (`derive.ts`): cada fuente guarda su fecha de fin. Un proyecto toma la del puesto con el que se hizo. La tecnología usa la más reciente y se ordena por ella, y en caso de empate por número de sitios y por nombre.
+  - **Presentación** (`TechSpecimen.tsx`): el tamaño va de la más antigua a la más reciente. Cada palabra muestra "Último uso" y el año, y sus fuentes van de la más reciente a la más antigua.
+  - **Tamaño máximo:** se reduce para que quepan varias palabras por línea.
+  - **Texto:** se reescribe la entradilla de la sección en `ui.ts`.
+
 - Se corrige el efecto del puntero en los títulos cinéticos (`KineticText.tsx`).
   - **Fallo:** el efecto guardaba las letras una sola vez al montarse. Si el contenido del título cambiaba sin cambiar su texto, por ejemplo al añadir el enlace o en una recarga en caliente, seguía animando letras que ya no estaban en la página y el hover dejaba de verse.
   - **Corrección:** ahora busca las letras cada vez que mide, al entrar el puntero o si las anteriores ya no están en la página.
