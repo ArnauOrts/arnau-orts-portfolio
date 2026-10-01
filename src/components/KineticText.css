@@ -43,3 +43,18 @@
     animation: none;
   }
 }
+
+/* A linked title keeps its letterforms; the link shows itself through the pointer and a focus ring. */
+.kinetic__link {
+  display: grid;
+  color: inherit;
+  text-decoration: none;
+}
+
+.kinetic__link:focus-visible {
+  outline-offset: 6px;
+}
+
+.kinetic__link .visually-hidden {
+  text-transform: none;
+}

@@ -22,6 +22,8 @@ interface UiText {
     stack: string
     layersLabel: string
     screenshotPending: string
+    /** Read by screen readers after a link that opens in a new tab. */
+    newTab: string
   }
   work: { title: string }
   stack: { title: string; lead: string; usedIn: string }
@@ -77,6 +79,7 @@ export const ui: Localized<UiText> = {
       stack: 'Stack',
       layersLabel: 'Qué se hizo en cada capa',
       screenshotPending: 'Captura pendiente',
+      newTab: ' (se abre en una pestaña nueva)',
     },
     work: { title: 'Proyectos' },
     stack: {
@@ -134,6 +137,7 @@ export const ui: Localized<UiText> = {
       stack: 'Stack',
       layersLabel: 'What was built on each layer',
       screenshotPending: 'Screenshot pending',
+      newTab: ' (opens in a new tab)',
     },
     work: { title: 'Projects' },
     stack: {

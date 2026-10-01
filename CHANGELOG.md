@@ -4,6 +4,12 @@ Historial de cambios relevantes del proyecto, del más reciente al más antiguo.
 
 ## 2026-10-01
 
+- El título y las capturas de cada proyecto enlazan a su web (`links.demo`) y la abren en una pestaña nueva, a petición del usuario. El enlace "Ver demo" se mantiene.
+  - **Título:** `KineticText` admite una prop `link`. El efecto cinético se conserva, y los lectores de pantalla leen el nombre seguido de "(se abre en una pestaña nueva)".
+  - **Capturas:** al pasar el ratón suben 4 px y su borde se pone en lima, el acento reservado para hover. Con movimiento reducido no se desplazan.
+  - **Artículo:** se identifica por el nombre del proyecto (`aria-label`), para que no incluya el aviso de pestaña nueva.
+  - **Archivos:** `ProjectField.tsx/.css`, `KineticText.tsx/.css` y `ui.ts`.
+
 - Se cambian las capturas de Velzio a petición del usuario. Se toman de la web en producción (velziogroup.com) a doble resolución: la portada y la sección Comunidad.
   - **Formato:** WebP a 1600 × 1000 px (unos 100–120 KB cada una), en lugar de PNG de 0,5–1 MB, para que la página cargue más rápido.
   - **Archivos:** las nuevas están en `public/projects/velzio-portada.webp` y `velzio-comunidad.webp`, y se borran los PNG anteriores. Su origen queda registrado en los archivos `.webp.json` contiguos.

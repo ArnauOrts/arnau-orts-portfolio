@@ -1,3 +1,4 @@
+import { Fragment } from 'react'
 import { LAYER_IDS, type Project } from '../content/types.ts'
 import { useReveal } from '../hooks/useReveal.ts'
 import { useLocale } from '../i18n/useLocale.ts'
@@ -23,29 +24,45 @@ export function ProjectField({ project, index }: ProjectFieldProps) {
   const field = FIELDS[index % FIELDS.length]
   const headingId = `${sheetId(project.slug)}-title`
   const stack = [...new Set(LAYER_IDS.flatMap((layer) => project.layers[layer].stack))]
+  const site = project.links.demo
 
   return (
-    <article className="field" data-field={field} id={sheetId(project.slug)} aria-labelledby={headingId}>
+    <article className="field" data-field={field} id={sheetId(project.slug)} aria-label={project.name[locale]}>
       <div className="page field__inner">
         <div className="field__title-zone">
-          <KineticText as="h3" id={headingId} className="field__title" lines={[project.name[locale]]} />
+          <KineticText
+            as="h3"
+            id={headingId}
+            className="field__title"
+            lines={[project.name[locale]]}
+            link={site ? { href: site, hint: t.project.newTab } : undefined}
+          />
         </div>
 
         <div className="field__aside">
           {project.screenshots && project.screenshots.length > 0 ? (
             <div className="field__shots">
-              {project.screenshots.map((shot, i) => (
-                <img
-                  key={shot.src}
-                  className="field__media"
-                  src={shot.src}
-                  alt={shot.alt[locale]}
-                  width={shot.width}
-                  height={shot.height}
-                  loading={index === 0 && i === 0 ? 'eager' : 'lazy'}
-                  decoding="async"
-                />
-              ))}
+              {project.screenshots.map((shot, i) => {
+                const image = (
+                  <img
+                    className="field__media"
+                    src={shot.src}
+                    alt={shot.alt[locale]}
+                    width={shot.width}
+                    height={shot.height}
+                    loading={index === 0 && i === 0 ? 'eager' : 'lazy'}
+                    decoding="async"
+                  />
+                )
+                return site ? (
+                  <a key={shot.src} className="field__shot-link" href={site} target="_blank" rel="noreferrer">
+                    {image}
+                    <span className="visually-hidden">{t.project.newTab}</span>
+                  </a>
+                ) : (
+                  <Fragment key={shot.src}>{image}</Fragment>
+                )
+              })}
             </div>
           ) : (
             <div className="field__media field__media--pending">{t.project.screenshotPending}</div>

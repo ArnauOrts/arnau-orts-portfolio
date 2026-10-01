@@ -10,6 +10,8 @@ interface KineticTextProps {
   sizing?: 'fill' | 'flow'
   className?: string
   id?: string
+  /** Optional external link wrapping the text; it opens in a new tab. `hint` is read after the text by screen readers. */
+  link?: { href: string; hint: string }
 }
 
 /** Resting and fully excited axis values of the variable display face. */
@@ -26,7 +28,7 @@ const FILL = 0.9
  * Display text whose letters widen and thicken as the pointer comes near.
  * Fine pointers only; touch and reduced-motion users get the resting cut.
  */
-export function KineticText({ as: Tag = 'h2', lines, sizing = 'flow', className, id }: KineticTextProps) {
+export function KineticText({ as: Tag = 'h2', lines, sizing = 'flow', className, id, link }: KineticTextProps) {
   const rootRef = useRef<HTMLElement>(null)
   const text = lines.join('|')
 
@@ -154,24 +156,40 @@ export function KineticText({ as: Tag = 'h2', lines, sizing = 'flow', className,
   }, [text])
 
   let order = 0
+  const letters = lines.map((line, lineIndex) => (
+    <span key={`${line}-${lineIndex}`} className="kinetic__line" aria-hidden="true">
+      {line.split(' ').map((word, wordIndex) => (
+        <Fragment key={`${word}-${wordIndex}`}>
+          {wordIndex > 0 && ' '}
+          <span className="kinetic__word">
+            {Array.from(word).map((char, charIndex) => (
+              <span key={charIndex} className="kinetic__letter" data-letter style={{ animationDelay: `${order++ * 28}ms` }}>
+                {char}
+              </span>
+            ))}
+          </span>
+        </Fragment>
+      ))}
+    </span>
+  ))
+
+  if (link) {
+    return (
+      <Tag ref={rootRef} className={`kinetic ${className ?? ''}`} id={id}>
+        <a className="kinetic__link" href={link.href} target="_blank" rel="noreferrer">
+          {letters}
+          <span className="visually-hidden">
+            {lines.join(' ')}
+            {link.hint}
+          </span>
+        </a>
+      </Tag>
+    )
+  }
+
   return (
     <Tag ref={rootRef} className={`kinetic ${className ?? ''}`} id={id} aria-label={lines.join(' ')}>
-      {lines.map((line, lineIndex) => (
-        <span key={`${line}-${lineIndex}`} className="kinetic__line" aria-hidden="true">
-          {line.split(' ').map((word, wordIndex) => (
-            <Fragment key={`${word}-${wordIndex}`}>
-              {wordIndex > 0 && ' '}
-              <span className="kinetic__word">
-                {Array.from(word).map((char, charIndex) => (
-                  <span key={charIndex} className="kinetic__letter" data-letter style={{ animationDelay: `${order++ * 28}ms` }}>
-                    {char}
-                  </span>
-                ))}
-              </span>
-            </Fragment>
-          ))}
-        </span>
-      ))}
+      {letters}
     </Tag>
   )
 }
