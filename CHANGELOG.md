@@ -4,6 +4,11 @@ Historial de cambios relevantes del proyecto, del más reciente al más antiguo.
 
 ## 2026-10-01
 
+- La web se sirve en el dominio propio https://arnauorts.site, registrado en Namecheap, a petición del usuario.
+  - **Vercel:** se añaden `arnauorts.site` y `www.arnauorts.site` al proyecto, con redirección 308 de `www` al dominio raíz. El certificado HTTPS (Let's Encrypt) lo emite y renueva Vercel.
+  - **DNS en Namecheap (los cambió el usuario):** dos registros A de `@` a 216.198.79.1 y 64.29.17.1, y un CNAME de `www` al destino de Vercel. Se quitaron los registros de aparcamiento.
+  - **Documentación:** se actualizan la web del repositorio en GitHub, `README.md`, `CLAUDE.md` y `PRODUCT.md`, donde el despliegue y el dominio dejan de estar sin decidir.
+
 - Todas las tecnologías se muestran con el mismo tamaño, el que tenía React (`calc(min(var(--text-2xl), 6vw) * 0.75)`, ancho 101 y peso 700), a petición del usuario. Se mantiene el orden de la más reciente a la más antigua. El estilo pasa a `TechSpecimen.css` en lugar de calcularse en línea, y se ajusta la entradilla en `ui.ts`.
 
 - La web se despliega en Vercel, a petición del usuario: https://arnau-orts-portfolio.vercel.app. El proyecto se llama `arnau-orts-portfolio` y lleva la configuración de Vite detectada automáticamente.

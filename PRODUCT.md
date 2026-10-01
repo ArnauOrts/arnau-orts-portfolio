@@ -30,7 +30,8 @@ Perfil full-stack: el portfolio tiene que demostrar capacidad de extremo a extre
 - Bilingüe **español e inglés**, con selector de idioma. Todo el contenido debe existir en ambos idiomas.
 - Nombre que se muestra: **Arnau Orts Brichs**, con el rol "Desarrollador full-stack / Full-stack developer".
 - Contacto decidido por el usuario: correo (orts.brichs.arnau@gmail.com) y LinkedIn (linkedin.com/in/arnauorts). No se publican teléfono, GitHub ni CV descargable.
-- Sin decidir: destino de despliegue y dominio, y si habrá blog o artículos.
+- Despliegue: Vercel, en el dominio propio https://arnauorts.site.
+- Sin decidir: si habrá blog o artículos.
 
 ## Evidence on Hand
 

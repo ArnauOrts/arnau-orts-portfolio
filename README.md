@@ -2,7 +2,7 @@
 
 Portfolio personal de Arnau Orts Brichs, desarrollador full-stack. Es bilingüe (español e inglés) y ocupa una sola página. Cada proyecto se presenta dividido en sus tres capas: frontend, backend y datos.
 
-**Web:** https://arnau-orts-portfolio.vercel.app
+**Web:** https://arnauorts.site
 
 *Personal portfolio of Arnau Orts Brichs, full-stack developer. A bilingual (Spanish/English) single page where every project is broken down into its frontend, backend and data layers.*
 
@@ -23,7 +23,7 @@ npm run lint     # ESLint
 npm run preview  # sirve el build de producción
 ```
 
-El despliegue es en Vercel (proyecto `arnau-orts-portfolio`), que construye la web con `npm run build` y publica `dist/`.
+El despliegue es en Vercel (proyecto `arnau-orts-portfolio`), que construye la web con `npm run build` y publica `dist/` en el dominio `arnauorts.site`.
 
 ## Cómo se edita el contenido
 
