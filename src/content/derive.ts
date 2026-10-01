@@ -19,8 +19,6 @@ export interface TechUse {
   sources: TechSource[]
   /** Most recent use, as a month index; drives order and size. */
   lastUsed: number
-  /** Year of the most recent use, for display. */
-  lastYear: string
 }
 
 const same = (text: string): Localized => ({ es: text, en: text })
@@ -77,8 +75,7 @@ export const techIndex: TechUse[] = (() => {
     .map(([tech, use]) => {
       const sources = [...use.sources.values()].sort((a, b) => b.ended - a.ended)
       const lastUsed = sources[0].ended
-      const lastYear = String(Math.floor(lastUsed / 12))
-      return { tech, layers: LAYER_IDS.filter((layer) => use.layers.has(layer)), sources, lastUsed, lastYear }
+      return { tech, layers: LAYER_IDS.filter((layer) => use.layers.has(layer)), sources, lastUsed }
     })
     .sort((a, b) => b.lastUsed - a.lastUsed || b.sources.length - a.sources.length || a.tech.localeCompare(b.tech))
 })()

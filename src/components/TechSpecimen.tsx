@@ -32,9 +32,9 @@ export function TechSpecimen() {
                 {use.tech}
               </span>
               <span className="specimen__meta">
-                <span className="label">
-                  {[...use.layers.map((layer) => t.layers[layer]), `${t.stack.lastUsed} ${use.lastYear}`].join(' · ')}
-                </span>
+                {use.layers.length > 0 && (
+                  <span className="label">{use.layers.map((layer) => t.layers[layer]).join(' · ')}</span>
+                )}
                 <span className="specimen__proof">
                   <span className="visually-hidden">{t.stack.usedIn} </span>
                   {use.sources.map((source, i) => (

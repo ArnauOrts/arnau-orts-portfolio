@@ -4,6 +4,8 @@ Historial de cambios relevantes del proyecto, del más reciente al más antiguo.
 
 ## 2026-10-01
 
+- Se quita la etiqueta "Último uso" de las tecnologías porque al usuario no le convence. El orden y el tamaño siguen dependiendo de la recencia. Debajo de cada palabra quedan solo la capa (si la tiene) y los enlaces a donde se usó (`TechSpecimen.tsx`, `derive.ts`, `ui.ts`).
+
 - Las tecnologías se ordenan y dimensionan por su uso más reciente, a petición del usuario. Antes contaba el número de sitios donde aparecían, y SQL salía la más grande solo por estar en los tres programas de formación.
   - **Datos** (`derive.ts`): cada fuente guarda su fecha de fin. Un proyecto toma la del puesto con el que se hizo. La tecnología usa la más reciente y se ordena por ella, y en caso de empate por número de sitios y por nombre.
   - **Presentación** (`TechSpecimen.tsx`): el tamaño va de la más antigua a la más reciente. Cada palabra muestra "Último uso" y el año, y sus fuentes van de la más reciente a la más antigua.

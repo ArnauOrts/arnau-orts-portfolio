@@ -26,7 +26,7 @@ interface UiText {
     newTab: string
   }
   work: { title: string }
-  stack: { title: string; lead: string; usedIn: string; lastUsed: string }
+  stack: { title: string; lead: string; usedIn: string }
   experience: { title: string; present: string; education: string; languages: string }
   contact: {
     title: string
@@ -86,7 +86,6 @@ export const ui: Localized<UiText> = {
       title: 'Tecnologías',
       lead: 'Ordenadas de la más reciente a la más antigua: cuanto más grande, más reciente su uso. Cada una enlaza al proyecto, el puesto o la formación donde la he usado.',
       usedIn: 'Usado en',
-      lastUsed: 'Último uso',
     },
     experience: { title: 'Trayectoria', present: 'Actualidad', education: 'Formación', languages: 'Idiomas' },
     contact: {
@@ -145,7 +144,6 @@ export const ui: Localized<UiText> = {
       title: 'Technologies',
       lead: 'Ordered from most to least recent: the bigger the word, the more recently I used it. Each one links to the project, role or training where I used it.',
       usedIn: 'Used in',
-      lastUsed: 'Last used',
     },
     experience: { title: 'Experience', present: 'Present', education: 'Education', languages: 'Languages' },
     contact: {
