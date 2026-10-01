@@ -4,6 +4,8 @@ Historial de cambios relevantes del proyecto, del más reciente al más antiguo.
 
 ## 2026-10-01
 
+- Todas las tecnologías se muestran con el mismo tamaño, el que tenía React (`calc(min(var(--text-2xl), 6vw) * 0.75)`, ancho 101 y peso 700), a petición del usuario. Se mantiene el orden de la más reciente a la más antigua. El estilo pasa a `TechSpecimen.css` en lugar de calcularse en línea, y se ajusta la entradilla en `ui.ts`.
+
 - La web se despliega en Vercel, a petición del usuario: https://arnau-orts-portfolio.vercel.app. El proyecto se llama `arnau-orts-portfolio` y lleva la configuración de Vite detectada automáticamente.
   - **Despliegue:** por ahora se hace con la CLI (`npx vercel deploy --prod`). La conexión automática con GitHub falló porque falta instalar la app de Vercel en la cuenta de GitHub. Cuando esté instalada, cada `git push` desplegará solo.
   - **`.gitignore`:** Vercel añadió `.vercel` y `.env*`; `.env.local` contiene un token OIDC que no debe subirse.

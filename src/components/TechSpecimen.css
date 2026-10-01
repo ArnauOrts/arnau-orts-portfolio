@@ -23,6 +23,11 @@
 .specimen__word {
   overflow-wrap: anywhere;
   font-family: var(--font-display);
+  /* One size for every technology: the order alone says what is most recent. */
+  font-size: calc(min(var(--text-2xl), 6vw) * 0.75);
+  font-variation-settings:
+    'wdth' 101,
+    'wght' 700;
   line-height: 0.9;
   text-transform: uppercase;
 }

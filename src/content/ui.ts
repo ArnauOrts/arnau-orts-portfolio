@@ -84,7 +84,7 @@ export const ui: Localized<UiText> = {
     work: { title: 'Proyectos' },
     stack: {
       title: 'Tecnologías',
-      lead: 'Ordenadas de la más reciente a la más antigua: cuanto más grande, más reciente su uso. Cada una enlaza al proyecto, el puesto o la formación donde la he usado.',
+      lead: 'Ordenadas de la más reciente a la más antigua. Cada una enlaza al proyecto, el puesto o la formación donde la he usado.',
       usedIn: 'Usado en',
     },
     experience: { title: 'Trayectoria', present: 'Actualidad', education: 'Formación', languages: 'Idiomas' },
@@ -142,7 +142,7 @@ export const ui: Localized<UiText> = {
     work: { title: 'Projects' },
     stack: {
       title: 'Technologies',
-      lead: 'Ordered from most to least recent: the bigger the word, the more recently I used it. Each one links to the project, role or training where I used it.',
+      lead: 'Ordered from most to least recent. Each one links to the project, role or training where I used it.',
       usedIn: 'Used in',
     },
     experience: { title: 'Experience', present: 'Present', education: 'Education', languages: 'Languages' },
