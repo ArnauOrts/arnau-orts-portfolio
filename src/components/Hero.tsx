@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 import { profile } from '../content/profile.ts'
 import { useLocale } from '../i18n/useLocale.ts'
-import { ArrowDown, ArrowRight, ArrowUpRight } from './Icons.tsx'
+import { ArrowDown, ArrowUpRight } from './Icons.tsx'
 import { KineticText } from './KineticText.tsx'
 import './Hero.css'
 
@@ -41,9 +41,9 @@ export function Hero() {
               <ArrowUpRight />
             </a>
           )}
-          <a className="btn btn--ghost" href={profile.email ? `mailto:${profile.email}` : '#contact'}>
+          <a className="btn btn--ghost" href="#contact">
             {t.actions.contact}
-            <ArrowRight />
+            <ArrowDown />
           </a>
         </div>
       </div>

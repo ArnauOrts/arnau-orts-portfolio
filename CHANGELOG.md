@@ -4,6 +4,8 @@ Historial de cambios relevantes del proyecto, del más reciente al más antiguo.
 
 ## 2026-10-01
 
+- El botón "Contactar" de la primera pantalla lleva a la sección de contacto (`#contact`) en lugar de abrir el correo, a petición del usuario. Ahora lleva una flecha hacia abajo, como "Ver proyectos" (`Hero.tsx`).
+
 - Se quita la etiqueta "Último uso" de las tecnologías porque al usuario no le convence. El orden y el tamaño siguen dependiendo de la recencia. Debajo de cada palabra quedan solo la capa (si la tiene) y los enlaces a donde se usó (`TechSpecimen.tsx`, `derive.ts`, `ui.ts`).
 
 - Las tecnologías se ordenan y dimensionan por su uso más reciente, a petición del usuario. Antes contaba el número de sitios donde aparecían, y SQL salía la más grande solo por estar en los tres programas de formación.
