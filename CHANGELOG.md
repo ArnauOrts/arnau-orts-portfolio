@@ -4,6 +4,11 @@ Historial de cambios relevantes del proyecto, del más reciente al más antiguo.
 
 ## 2026-10-01
 
+- Se cambian las capturas de Velzio a petición del usuario. Se toman de la web en producción (velziogroup.com) a doble resolución: la portada y la sección Comunidad.
+  - **Formato:** WebP a 1600 × 1000 px (unos 100–120 KB cada una), en lugar de PNG de 0,5–1 MB, para que la página cargue más rápido.
+  - **Archivos:** las nuevas están en `public/projects/velzio-portada.webp` y `velzio-comunidad.webp`, y se borran los PNG anteriores. Su origen queda registrado en los archivos `.webp.json` contiguos.
+  - **Datos:** se actualizan las rutas, las dimensiones y los textos alternativos en `src/content/projects.ts`.
+
 - El proyecto pasa a git y se publica en GitHub, en el repositorio público https://github.com/ArnauOrts/arnau-orts-portfolio (rama `main`), a petición del usuario.
   - **Qué no se sube** (`.gitignore`): las herramientas de terceros (`.claude/skills` y `.claude/agents`, que se restauran con `skills-lock.json` y el instalador de impeccable) y los artefactos de trabajo de impeccable (capturas de revisión, críticas y páginas de decisión). El sistema de diseño (`DESIGN.md`, `.impeccable/design.json`) y el contrato de dirección sí se versionan.
   - **README:** `README.md` sustituye el de la plantilla de Vite por uno propio, que explica el proyecto, cómo arrancarlo y cómo editar el contenido.

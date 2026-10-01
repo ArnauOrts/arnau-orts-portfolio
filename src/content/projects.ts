@@ -73,22 +73,22 @@ export const projects: Project[] = [
     links: { demo: 'https://velziogroup.com' },
     screenshots: [
       {
-        src: '/projects/velzio-inicio.png',
+        src: '/projects/velzio-portada.webp',
         alt: {
-          es: 'Portada de Velzio con la selección de coches clásicos en venta y la barra de navegación inferior.',
-          en: 'Velzio home screen with the selection of classic cars for sale and the bottom navigation bar.',
+          es: 'Portada de Velzio con el buscador y los últimos anuncios de coches y motos clásicas.',
+          en: 'Velzio home page with the search bar and the latest classic car and motorbike listings.',
         },
-        width: 1903,
-        height: 907,
+        width: 1600,
+        height: 1000,
       },
       {
-        src: '/projects/velzio-comunidad.png',
+        src: '/projects/velzio-comunidad.webp',
         alt: {
-          es: 'Sección Comunidad de Velzio con publicaciones destacadas de restauraciones.',
-          en: 'Velzio Community section with featured restoration posts.',
+          es: 'Sección Comunidad de Velzio con las publicaciones destacadas de los usuarios.',
+          en: 'Velzio Community section with users’ featured posts.',
         },
-        width: 1904,
-        height: 905,
+        width: 1600,
+        height: 1000,
       },
     ],
   },
