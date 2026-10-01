@@ -1,0 +1,45 @@
+.kinetic {
+  display: grid;
+  font-family: var(--font-display);
+  font-weight: 750;
+  line-height: 0.88;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+}
+
+.kinetic__line {
+  display: block;
+}
+
+.kinetic__word {
+  white-space: nowrap;
+}
+
+.kinetic__letter {
+  display: inline-block;
+  font-variation-settings:
+    'wdth' 115,
+    'wght' 750;
+  /* On load the letters open from narrow to their resting cut, one after another; they are visible throughout. */
+  animation: kinetic-open 900ms var(--ease-out) backwards;
+}
+
+@keyframes kinetic-open {
+  from {
+    font-variation-settings:
+      'wdth' 60,
+      'wght' 400;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kinetic__letter {
+    animation: none;
+  }
+}
+
+@media print {
+  .kinetic__letter {
+    animation: none;
+  }
+}

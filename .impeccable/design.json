@@ -1,0 +1,138 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-01T00:00:00Z",
+  "title": "Design System: Arnau Orts Brichs · Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "ink": { "role": "primary", "displayName": "Ink", "canonical": "#111111", "tonalRamp": ["oklch(15% 0 0)", "oklch(18% 0 0)", "oklch(28% 0 0)", "oklch(40% 0 0)", "oklch(55% 0 0)", "oklch(70% 0 0)", "oklch(84% 0 0)", "oklch(95% 0 0)"] },
+      "paper": { "role": "primary", "displayName": "Paper", "canonical": "#f3f1ec", "tonalRamp": ["oklch(15% 0.006 85)", "oklch(28% 0.006 85)", "oklch(40% 0.006 85)", "oklch(55% 0.006 85)", "oklch(70% 0.006 85)", "oklch(84% 0.006 85)", "oklch(91% 0.006 85)", "oklch(96% 0.006 85)"] },
+      "cobalt": { "role": "secondary", "displayName": "Cobalt Field", "canonical": "#2f3bff", "tonalRamp": ["oklch(18% 0.12 268)", "oklch(28% 0.2 268)", "oklch(38% 0.26 268)", "oklch(47% 0.29 268)", "oklch(60% 0.22 268)", "oklch(72% 0.15 268)", "oklch(84% 0.08 268)", "oklch(95% 0.02 268)"] },
+      "vermilion": { "role": "secondary", "displayName": "Vermilion Field", "canonical": "#ff5a36", "tonalRamp": ["oklch(18% 0.06 35)", "oklch(30% 0.11 35)", "oklch(42% 0.16 35)", "oklch(55% 0.2 35)", "oklch(67% 0.21 35)", "oklch(76% 0.15 35)", "oklch(86% 0.08 35)", "oklch(95% 0.02 35)"] },
+      "chartreuse": { "role": "tertiary", "displayName": "Chartreuse (field and state accent)", "canonical": "#c6f432", "tonalRamp": ["oklch(18% 0.04 125)", "oklch(30% 0.08 125)", "oklch(42% 0.12 125)", "oklch(55% 0.16 125)", "oklch(68% 0.19 125)", "oklch(80% 0.2 125)", "oklch(90% 0.2 125)", "oklch(96% 0.07 125)"] },
+      "ink-soft": { "role": "neutral", "displayName": "Soft Ink", "canonical": "#4a4a48", "tonalRamp": ["oklch(15% 0.002 106)", "oklch(28% 0.002 106)", "oklch(41% 0.002 106)", "oklch(55% 0.002 106)", "oklch(68% 0.002 106)", "oklch(80% 0.002 106)", "oklch(89% 0.002 106)", "oklch(95% 0.002 106)"] },
+      "ink-mute": { "role": "neutral", "displayName": "Muted Ink", "canonical": "#6b6a66", "tonalRamp": ["oklch(15% 0.005 90)", "oklch(28% 0.005 90)", "oklch(40% 0.005 90)", "oklch(53% 0.005 90)", "oklch(66% 0.005 90)", "oklch(78% 0.005 90)", "oklch(88% 0.005 90)", "oklch(95% 0.005 90)"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display (kinetic)", "purpose": "Hero name, project titles, contact title. Uppercase Anybody, letter-by-letter pointer response from wdth 115 / wght 750 to wdth 150 / wght 900; hero and contact titles fill 90% of the content width." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles, layer names inside a project, contact email." },
+      "title": { "displayName": "Title", "purpose": "Job roles, hero role band, header wordmark (at body size)." },
+      "body-lead": { "displayName": "Body Lead", "purpose": "Section leads, hero intro, project summaries; 42 to 52ch." },
+      "body": { "displayName": "Body", "purpose": "Reading text, max 60ch; tabular numerals for years and indices." },
+      "label": { "displayName": "Label", "purpose": "Uppercase term attached to the value it names: data-band terms, specimen layer tags, placeholder badges." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.23, 1, 0.32, 1)", "purpose": "Entrances, reveals, icon nudges, press feedback." },
+      { "name": "ease-in-out", "value": "cubic-bezier(0.77, 0, 0.175, 1)", "purpose": "Declared for symmetric moves; currently unused in components." },
+      { "name": "state-change", "value": "160ms ease", "purpose": "Background, colour and border changes on hover and pressed states." },
+      { "name": "press", "value": "transform 120ms ease-out, scale(0.97)", "purpose": "Button press feedback; removed under reduced motion." },
+      { "name": "kinetic-open", "value": "900ms ease-out, 28ms stagger per letter, from wdth 60 / wght 400", "purpose": "Display letters open to their resting cut on load." },
+      { "name": "kinetic-follow", "value": "per-frame follow 0.18, reach 220px, smoothstep falloff", "purpose": "Pointer response of display letters on fine pointers." },
+      { "name": "hero-row-in", "value": "700ms ease-out, 420ms delay, from translateY(12px)", "purpose": "Hero role, intro and actions rise once the name has opened." },
+      { "name": "layer-reveal", "value": "opacity and transform 600ms ease-out, from translateY(24px)", "purpose": "Project layers rise in sequence when the list enters the viewport." }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "48rem" },
+      { "name": "lg", "value": "64rem" },
+      { "name": "xl", "value": "80rem" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Solid Button",
+      "kind": "button",
+      "refersTo": "button-solid",
+      "description": "Primary action on paper: a block of ink that turns chartreuse on hover.",
+      "html": "<a class=\"ds-btn ds-btn-solid\" href=\"#\">Ver proyectos <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M12 5v14M6 13l6 6 6-6\"/></svg></a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 3rem; padding: 0 1.5rem; border: 2px solid currentColor; border-radius: 0; font-family: var(--font-text, 'Geist Variable', system-ui, sans-serif); font-size: 1.0625rem; font-weight: 600; text-decoration: none; white-space: nowrap; cursor: pointer; transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease, transform 120ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-btn svg { width: 1.1em; height: 1.1em; transition: transform 200ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-btn:active { transform: scale(0.97); } .ds-btn:focus-visible { outline: 3px solid #2f3bff; outline-offset: 3px; } .ds-btn-solid { border-color: #111111; background: #111111; color: #f3f1ec; } .ds-btn-solid:hover { border-color: #111111; background: #c6f432; color: #111111; } .ds-btn:hover svg { transform: translateY(3px); }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary action: transparent with a 2px rule in the surrounding ink; fills chartreuse on hover.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\">Descargar CV</a>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; min-height: 3rem; padding: 0 1.5rem; border: 2px solid #111111; border-radius: 0; background: transparent; color: #111111; font-family: var(--font-text, 'Geist Variable', system-ui, sans-serif); font-size: 1.0625rem; font-weight: 600; text-decoration: none; transition: background-color 160ms ease, color 160ms ease, transform 120ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-btn-ghost:hover { background: #c6f432; color: #111111; } .ds-btn-ghost:active { transform: scale(0.97); } .ds-btn-ghost:focus-visible { outline: 3px solid #2f3bff; outline-offset: 3px; }"
+    },
+    {
+      "name": "Pending Slot",
+      "kind": "custom",
+      "description": "The footprint of an action that does not exist yet, drawn in a dashed rule; not interactive.",
+      "html": "<span class=\"ds-slot\">CV pendiente</span>",
+      "css": ".ds-slot { display: inline-flex; align-items: center; gap: 0.75rem; min-height: 3rem; padding: 0 1.5rem; border: 2px dashed #111111; color: #111111; font-family: var(--font-text, 'Geist Variable', system-ui, sans-serif); font-weight: 600; white-space: nowrap; }"
+    },
+    {
+      "name": "Locale Switch",
+      "kind": "chip",
+      "refersTo": "locale-switch-active",
+      "description": "Two square cells in an ink frame; the pressed language is ink.",
+      "html": "<div class=\"ds-locale\"><button class=\"ds-locale__opt\" aria-pressed=\"true\">ES</button><button class=\"ds-locale__opt\" aria-pressed=\"false\">EN</button></div>",
+      "css": ".ds-locale { display: inline-flex; border: 2px solid #111111; } .ds-locale__opt { min-width: 2.75rem; min-height: 2.5rem; border: 0; border-radius: 0; background: none; color: #111111; font-family: var(--font-text, 'Geist Variable', system-ui, sans-serif); font-size: 0.875rem; font-weight: 600; cursor: pointer; transition: background-color 160ms ease, color 160ms ease; } .ds-locale__opt[aria-pressed='true'] { background: #111111; color: #f3f1ec; } .ds-locale__opt[aria-pressed='false']:hover { background: #c6f432; } .ds-locale__opt:focus-visible { outline: 3px solid #2f3bff; outline-offset: 3px; }"
+    },
+    {
+      "name": "Header Navigation",
+      "kind": "nav",
+      "description": "Section links on paper; hover fills chartreuse, the current section gets an ink rule over a chartreuse band.",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" aria-current=\"true\">Proyectos</a><a href=\"#\">Tecnologías</a><a href=\"#\">Trayectoria</a><a href=\"#\">Contacto</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 0.5rem; padding: 0.5rem 0; background: #f3f1ec; border-bottom: 2px solid #111111; } .ds-nav a { display: inline-flex; align-items: center; min-height: 2.75rem; padding-inline: 0.75rem; color: #111111; font-family: var(--font-text, 'Geist Variable', system-ui, sans-serif); font-weight: 500; text-decoration: none; transition: background-color 160ms ease; } .ds-nav a:hover { background: #c6f432; } .ds-nav a[aria-current] { font-weight: 700; box-shadow: inset 0 -3px 0 #111111, inset 0 -8px 0 #c6f432; } .ds-nav a:focus-visible { outline: 3px solid #2f3bff; outline-offset: 3px; }"
+    },
+    {
+      "name": "Project Field",
+      "kind": "card",
+      "refersTo": "project-field-cobalt",
+      "description": "Full-bleed colour field per project (cobalt, vermilion, chartreuse by index): kinetic title, data band ruled in the field's ink, numbered layers.",
+      "html": "<article class=\"ds-field\"><h3 class=\"ds-field__title\">Gestor de reservas</h3><dl class=\"ds-field__band\"><div><dt>Año</dt><dd>2025</dd></div><div><dt>Rol</dt><dd>Full-stack</dd></div></dl><ol class=\"ds-field__layers\"><li><span>01</span> Interfaz</li><li><span>02</span> API</li><li><span>03</span> Datos</li></ol></article>",
+      "css": ".ds-field { padding: 3rem 2rem 4rem; background: #2f3bff; color: #f3f1ec; } .ds-field__title { margin: 0 0 2rem; font-family: var(--font-display, 'Anybody Variable', 'Arial Black', sans-serif); font-size: 4rem; font-weight: 750; font-variation-settings: 'wdth' 115, 'wght' 750; line-height: 0.88; letter-spacing: -0.015em; text-transform: uppercase; transition: font-variation-settings 300ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-field__title:hover { font-variation-settings: 'wdth' 150, 'wght' 900; } .ds-field__band { display: flex; gap: 1rem 3rem; margin: 0 0 1.5rem; padding-block: 1rem; border-block: 2px solid currentColor; font-family: var(--font-text, 'Geist Variable', system-ui, sans-serif); } .ds-field__band dt { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; } .ds-field__band dd { margin: 0; font-weight: 500; } .ds-field__layers { margin: 0; padding: 0; list-style: none; } .ds-field__layers li { padding-block: 1.5rem; border-top: 2px solid currentColor; font-family: var(--font-display, 'Anybody Variable', sans-serif); font-size: 2.25rem; font-weight: 800; line-height: 0.9; text-transform: uppercase; } .ds-field__layers li:last-child { border-bottom: 2px solid currentColor; } .ds-field__layers span { font-family: var(--font-text, 'Geist Variable', sans-serif); font-size: 0.875rem; font-weight: 600; }"
+    },
+    {
+      "name": "Placeholder Badge",
+      "kind": "chip",
+      "description": "Dashed uppercase badge in currentColor marking sample or pending content; reads on any ground.",
+      "html": "<span class=\"ds-badge\">Ejemplo</span>",
+      "css": ".ds-badge { display: inline-block; padding: 0.2em 0.6em; border: 1.5px dashed currentColor; color: #111111; font-family: var(--font-text, 'Geist Variable', system-ui, sans-serif); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; line-height: 1.4; text-transform: uppercase; white-space: nowrap; }"
+    },
+    {
+      "name": "Contact Field Accent Button",
+      "kind": "button",
+      "refersTo": "button-accent-on-ink",
+      "description": "Primary action on the ink contact field: chartreuse, turning paper on hover.",
+      "html": "<div class=\"ds-ink\"><a class=\"ds-btn-accent\" href=\"#\">Descargar CV</a></div>",
+      "css": ".ds-ink { padding: 2rem; background: #111111; } .ds-btn-accent { display: inline-flex; align-items: center; min-height: 3rem; padding: 0 1.5rem; border: 2px solid #c6f432; border-radius: 0; background: #c6f432; color: #111111; font-family: var(--font-text, 'Geist Variable', system-ui, sans-serif); font-size: 1.0625rem; font-weight: 600; text-decoration: none; transition: background-color 160ms ease, border-color 160ms ease; } .ds-btn-accent:hover { border-color: #f3f1ec; background: #f3f1ec; } .ds-btn-accent:focus-visible { outline: 3px solid #c6f432; outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Type Is the Interface",
+    "overview": "The page is printed in two materials, warm paper and near-black ink, and interrupted by full-bleed fields of flat saturated colour. The name and every project title are set in an enormous uppercase variable grotesk that opens wider and heavier as the pointer comes near; that response is the signature, and nothing else on the page competes with it. There are no illustrations, no cards, no imagery standing in for the work: where a screenshot exists it is shown framed in a 2px rule, and where it does not, the frame is drawn dashed at the size the real thing will occupy.\n\nDensity is low at the top and rises inside each project: a billboard title, then a compact data band and a numbered stack of layers ruled in the field's own ink. Sections never fade or blend into each other. They meet at hard colour cuts, paper to cobalt to vermilion to chartreuse and back to paper, ending on the ink field.\n\nMotion follows one grammar: type breathes (width and weight change on the variable axes), and blocks only rise into place vertically, never slide sideways.",
+    "keyCharacteristics": [
+      "Paper ground, ink type, and one flat colour field per project cycling cobalt, vermilion, chartreuse by index.",
+      "Anybody variable, uppercase, tight leading, for every display word; Geist variable for everything read.",
+      "Square corners everywhere; 2px solid rules in currentColor are the only line.",
+      "Flat: no shadows, no gradients, no blur.",
+      "Missing content keeps its real footprint, drawn in dashed rule."
+    ],
+    "rules": [
+      { "name": "The One Field Rule", "body": "A project owns its whole full-bleed field, background and text colour together (cobalt with paper, vermilion with ink, chartreuse with ink), assigned by page index. Nothing inside a field introduces another colour; rules, badges, focus outlines and selection invert to the field's own ink.", "section": "colors" },
+      { "name": "The State Accent Rule", "body": "On paper, chartreuse appears only where something is hovered, selected or current. A resting element on paper is never chartreuse.", "section": "colors" },
+      { "name": "The Breathing Type Rule", "body": "Display letters move only along their variable axes: width 115 to 150 and weight 750 to 900 under a fine pointer, eased with a soft follow; on load they open from width 60 / weight 400 to rest, staggered 28ms per letter. Touch and reduced-motion users get the resting cut.", "section": "typography" },
+      { "name": "The Proof-Sized Specimen Rule", "body": "In the technology specimen, a word's size, width and weight scale with how many projects use it (45% to 100% of `--text-3xl`, width 80 to 115, weight 500 to 850).", "section": "typography" },
+      { "name": "The Hard Cut Rule", "body": "Sections meet edge to edge at a change of ground colour. No divider line, gradient or overlap separates one band from the next.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do give each project a full-bleed field in cobalt, vermilion or chartreuse, in that order by index, with its paired text colour.",
+      "Do set every display word in Anybody uppercase through the kinetic text component, so it opens on load and responds to the pointer.",
+      "Do draw every line as a 2px solid rule in currentColor, and every missing item as the same footprint in dashed rule.",
+      "Do keep chartreuse on paper for hover, selection and the current section only.",
+      "Do animate blocks only vertically (rise 12px to 24px) and type only on its width and weight axes; drop transforms under reduced motion.",
+      "Do keep Geist for all reading text, with soft ink for secondary copy on paper."
+    ],
+    "donts": [
+      "Don't round a corner, add a shadow, gradient or blur.",
+      "Don't slide a block in sideways.",
+      "Don't separate sections with a divider line; change the ground colour instead.",
+      "Don't put a resting chartreuse element on paper, or add a fourth field colour.",
+      "Don't set display type in Geist, or reading text in Anybody.",
+      "Don't put small uppercase labels above headings as kickers; labels only name the value beside them.",
+      "Don't replace missing content with invented samples or stock imagery; show the dashed footprint and the pending badge."
+    ]
+  }
+}

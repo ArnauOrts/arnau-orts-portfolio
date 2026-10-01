@@ -1,0 +1,296 @@
+@import '@fontsource-variable/anybody/standard.css';
+@import '@fontsource-variable/geist';
+
+:root {
+  /* Ground and ink. */
+  --paper: #f3f1ec;
+  --ink: #111111;
+  --ink-soft: #4a4a48;
+  --ink-mute: #6b6a66;
+
+  /* Colour fields: one per project, cutting hard against each other. */
+  --cobalt: #2f3bff;
+  --vermilion: #ff5a36;
+  --chartreuse: #c6f432;
+
+  /* The single accent for an active or hovered state. */
+  --accent: var(--chartreuse);
+
+  --font-display: 'Anybody Variable', 'Arial Black', sans-serif;
+  --font-text: 'Geist Variable', 'Segoe UI', system-ui, sans-serif;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-xl: clamp(1.5rem, 1.15rem + 1.2vw, 2rem);
+  --text-2xl: clamp(2.25rem, 1.2rem + 3.6vw, 4.5rem);
+  --text-3xl: clamp(3rem, 1rem + 7vw, 8rem);
+  --text-name: clamp(2.75rem, 0.5rem + 9.6vw, 9.5rem);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 5rem;
+  --space-9: 8rem;
+
+  --gutter: clamp(1rem, 0.3rem + 3vw, 3.5rem);
+  --page-max: 96rem;
+  --header-h: 4rem;
+  --bar-h: 0px;
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+
+  color-scheme: light;
+  accent-color: var(--cobalt);
+  caret-color: var(--cobalt);
+  scrollbar-color: var(--ink-mute) var(--paper);
+  font-family: var(--font-text);
+  font-size: 100%;
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--paper);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (max-width: 63.99rem) {
+  :root {
+    --bar-h: 3.5rem;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--paper);
+  font-size: var(--text-base);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--ink);
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+ul,
+ol,
+dl,
+dd,
+figure {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-stretch: 100%;
+  text-transform: uppercase;
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+:focus-visible {
+  outline: 3px solid var(--cobalt);
+  outline-offset: 3px;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Small uppercase label set in the reading face. */
+.label {
+  font-family: var(--font-text);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.page {
+  width: min(100%, var(--page-max));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.skip-link {
+  position: fixed;
+  top: var(--space-2);
+  left: var(--space-2);
+  z-index: 100;
+  padding: var(--space-2) var(--space-4);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.skip-link:not(:focus-visible) {
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+}
+
+/* Flat, square buttons: a block of ink that lights up in the accent. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: 3rem;
+  padding: 0 var(--space-5);
+  border: 2px solid currentColor;
+  font-family: var(--font-text);
+  font-size: var(--text-base);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    border-color 160ms ease,
+    transform 120ms var(--ease-out);
+}
+
+.btn svg {
+  flex: none;
+  width: 1.1em;
+  height: 1.1em;
+  transition: transform 200ms var(--ease-out);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn--solid {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.btn--ghost {
+  background: transparent;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn--solid:hover,
+  .btn--ghost:hover {
+    border-color: var(--ink);
+    background: var(--accent);
+    color: var(--ink);
+  }
+
+  .btn:hover svg {
+    transform: translateX(3px);
+  }
+}
+
+/* A detail that does not exist yet keeps the footprint of the real thing, drawn dashed. */
+.slot {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 3rem;
+  padding: 0 var(--space-5);
+  border: 2px dashed currentColor;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Shared section heading: big display word, reading-face lead underneath. */
+.section-head {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.section-head__title {
+  font-size: var(--text-2xl);
+  font-stretch: 112%;
+}
+
+.section-head__lead {
+  max-width: 52ch;
+  font-size: var(--text-lg);
+  color: var(--ink-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .btn svg {
+    transition-property: background-color, color, border-color;
+  }
+
+  .btn:active {
+    transform: none;
+  }
+}

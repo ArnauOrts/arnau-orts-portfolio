@@ -1,0 +1,223 @@
+/* A project owns a whole colour field; fields meet each other at hard cuts. */
+.field {
+  padding-block: var(--space-7) var(--space-9);
+  background: var(--field-bg);
+  color: var(--field-ink);
+}
+
+.field[data-field='cobalt'] {
+  --field-bg: var(--cobalt);
+  --field-ink: var(--paper);
+}
+
+.field[data-field='vermilion'] {
+  --field-bg: var(--vermilion);
+  --field-ink: var(--ink);
+}
+
+.field[data-field='chartreuse'] {
+  --field-bg: var(--chartreuse);
+  --field-ink: var(--ink);
+}
+
+.field ::selection {
+  background: var(--field-ink);
+  color: var(--field-bg);
+}
+
+.field :focus-visible {
+  outline-color: var(--field-ink);
+}
+
+.field__inner {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.field__title {
+  font-size: clamp(2.75rem, 0.8rem + 7.4vw, 9rem);
+}
+
+.field__aside {
+  display: grid;
+  align-content: start;
+  gap: var(--space-5);
+}
+
+/* Proof first: the product itself, or the frame it will occupy. */
+.field__shots {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.field__media {
+  width: 100%;
+  height: auto;
+  border: 2px solid currentColor;
+  background: var(--paper);
+}
+
+.field__media--pending {
+  aspect-ratio: 16 / 10;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: var(--space-3);
+  border-style: dashed;
+  font-weight: 600;
+  text-align: center;
+}
+
+.field__band {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4) var(--space-7);
+  margin: 0;
+  padding-block: var(--space-4);
+  border-block: 2px solid currentColor;
+}
+
+.field__band dd {
+  margin: 0;
+  font-weight: 500;
+}
+
+.field__badge {
+  align-self: center;
+}
+
+.field__summary {
+  max-width: 42ch;
+  font-size: var(--text-xl);
+  line-height: 1.3;
+}
+
+/* The three layers, numbered in stack order and revealed one after another. */
+.field__layers {
+  display: grid;
+}
+
+.layer {
+  display: grid;
+  gap: var(--space-3);
+  padding-block: var(--space-5);
+  border-top: 2px solid currentColor;
+  transition:
+    opacity 600ms var(--ease-out),
+    transform 600ms var(--ease-out);
+}
+
+.layer:last-child {
+  border-bottom: 2px solid currentColor;
+}
+
+.field__layers[data-revealed='false'] .layer {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.layer__name {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  font-stretch: 100%;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.layer__index {
+  font-family: var(--font-text);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.layer__body {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.layer__summary {
+  font-size: var(--text-lg);
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.layer__work {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.layer__work li {
+  display: grid;
+  grid-template-columns: 0.5em minmax(0, 1fr);
+  column-gap: var(--space-2);
+}
+
+.layer__work li::before {
+  content: '';
+  height: 0.5em;
+  margin-top: 0.5em;
+  background: currentColor;
+}
+
+.layer__stack {
+  font-weight: 600;
+}
+
+@media (min-width: 48rem) {
+  .layer {
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: var(--space-6);
+  }
+
+  .layer__name {
+    grid-column: 1 / -1;
+  }
+
+  .layer__stack {
+    text-align: right;
+  }
+}
+
+@media (min-width: 64rem) {
+  .field__inner {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    grid-template-areas:
+      'title title'
+      'aside layers';
+    column-gap: var(--space-8);
+    row-gap: var(--space-7);
+  }
+
+  .field__title-zone {
+    grid-area: title;
+  }
+
+  /* The project's proof stays beside its layers while they scroll past. */
+  .field__aside {
+    grid-area: aside;
+    position: sticky;
+    top: calc(var(--header-h) + var(--space-5));
+    align-self: start;
+  }
+
+  .field__layers {
+    grid-area: layers;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .field__layers[data-revealed='false'] .layer {
+    transform: none;
+  }
+}
+
+@media print {
+  .field__layers[data-revealed='false'] .layer {
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -1,0 +1,86 @@
+.hero {
+  display: grid;
+  align-content: end;
+  gap: var(--space-6);
+  padding-block: var(--space-7) var(--space-7);
+}
+
+.hero__name {
+  font-size: var(--text-name);
+}
+
+.hero__row {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.hero__intro {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.hero__role {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 800;
+  font-stretch: 125%;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+/* The role is printed on an ink band; the accent stays reserved for active and hover states. */
+.hero__role-mark {
+  white-space: nowrap;
+  padding: 0.14em 0.3em 0.08em;
+  background: var(--ink);
+  color: var(--paper);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.hero__lede {
+  max-width: 44ch;
+  font-size: var(--text-lg);
+  color: var(--ink-soft);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.hero__actions .slot {
+  font-size: var(--text-base);
+}
+
+@media (min-width: 80rem) {
+  .hero {
+    min-height: calc(66svh - var(--header-h));
+  }
+}
+
+@media (min-width: 64rem) {
+  .hero__row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    column-gap: var(--space-7);
+  }
+}
+
+/* The supporting row arrives once the name has opened. */
+.hero__row {
+  animation: hero-row-in 700ms var(--ease-out) 420ms backwards;
+}
+
+@keyframes hero-row-in {
+  from {
+    transform: translateY(12px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__row {
+    animation: none;
+  }
+}

@@ -1,0 +1,35 @@
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-6);
+}
+
+.project-links__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 2.75rem;
+  border-bottom: 2px solid currentColor;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.project-links__link svg {
+  width: 1em;
+  height: 1em;
+  transition: transform 200ms var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .project-links__link:hover svg {
+    transform: translate(2px, -2px);
+  }
+}
+
+.project-links--pending {
+  justify-self: start;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0 var(--space-4);
+  border: 2px dashed currentColor;
+}

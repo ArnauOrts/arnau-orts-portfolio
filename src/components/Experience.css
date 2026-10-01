@@ -1,0 +1,160 @@
+.experience {
+  display: grid;
+  gap: var(--space-7);
+  padding-block: var(--space-8) var(--space-9);
+}
+
+.experience__list {
+  display: grid;
+}
+
+.job {
+  display: grid;
+  gap: var(--space-2);
+  padding-block: var(--space-6);
+  border-top: 2px solid var(--ink);
+}
+
+.job:last-child {
+  border-bottom: 2px solid var(--ink);
+}
+
+.job__role {
+  font-size: var(--text-xl);
+  font-stretch: 120%;
+  line-height: 1;
+}
+
+.job__company {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+  font-weight: 600;
+}
+
+.job__period {
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+.job__summary {
+  max-width: 60ch;
+  color: var(--ink-soft);
+}
+
+.job__stack {
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+@media (min-width: 64rem) {
+  .job {
+    grid-template-columns: minmax(0, 4fr) minmax(0, 5fr) minmax(0, 3fr);
+    grid-template-areas:
+      'role summary period'
+      'company summary stack';
+    column-gap: var(--space-7);
+    align-items: start;
+  }
+
+  .job__role {
+    grid-area: role;
+  }
+
+  .job__company {
+    grid-area: company;
+  }
+
+  .job__summary {
+    grid-area: summary;
+  }
+
+  .job__period {
+    grid-area: period;
+    text-align: right;
+  }
+
+  .job__stack {
+    grid-area: stack;
+    text-align: right;
+  }
+}
+
+/* Education and languages: quieter, two columns beside each other on wide screens. */
+.experience__extra {
+  display: grid;
+  gap: var(--space-7);
+  padding-top: var(--space-5);
+}
+
+.studies {
+  display: grid;
+  align-content: start;
+  gap: var(--space-4);
+}
+
+.studies__title {
+  font-size: var(--text-xl);
+  font-stretch: 112%;
+}
+
+.studies__list {
+  display: grid;
+}
+
+.study {
+  display: grid;
+  gap: var(--space-1);
+  padding-block: var(--space-4);
+  border-top: 2px solid var(--ink);
+}
+
+.study__name {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.study__meta {
+  color: var(--ink-soft);
+}
+
+.study__stack {
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.languages {
+  display: grid;
+  margin: 0;
+}
+
+.languages__row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-block: var(--space-4);
+  border-top: 2px solid var(--ink);
+  font-size: var(--text-lg);
+}
+
+.languages__row:last-child {
+  border-bottom: 2px solid var(--ink);
+}
+
+.languages__row dt {
+  font-weight: 600;
+}
+
+.languages__row dd {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+@media (min-width: 64rem) {
+  .experience__extra {
+    grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+    column-gap: var(--space-8);
+  }
+}

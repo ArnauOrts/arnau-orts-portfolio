@@ -1,0 +1,10 @@
+/* Inherits the ink of whatever field it sits on, so it reads on paper, colour and ink alike. */
+.placeholder-badge {
+  display: inline-block;
+  flex: none;
+  padding: 0.2em 0.6em;
+  border: 1.5px dashed currentColor;
+  line-height: 1.4;
+  vertical-align: middle;
+  white-space: nowrap;
+}

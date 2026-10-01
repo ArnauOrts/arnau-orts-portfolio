@@ -1,0 +1,116 @@
+.contact {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.contact ::selection {
+  background: var(--accent);
+  color: var(--ink);
+}
+
+.contact :focus-visible {
+  outline-color: var(--accent);
+}
+
+.contact__inner {
+  display: grid;
+  gap: var(--space-6);
+  padding-block: var(--space-9) var(--space-8);
+}
+
+.contact__title {
+  font-size: var(--text-name);
+  color: var(--accent);
+}
+
+.contact__lead {
+  max-width: 40ch;
+  font-size: var(--text-xl);
+  line-height: 1.3;
+}
+
+.contact__channels {
+  display: grid;
+  gap: var(--space-6);
+  padding-top: var(--space-5);
+}
+
+.contact__email {
+  justify-self: start;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-4);
+  font-family: var(--font-text);
+  /* Sized so the address fits on one line at phone widths. */
+  font-size: min(var(--text-2xl), 5.8vw);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 0.18em;
+  text-decoration-color: var(--accent);
+  overflow-wrap: anywhere;
+}
+
+/* A missing address keeps the size of a real one, with a dashed underline where it will go. */
+.contact__email--pending {
+  min-width: min(100%, 22rem);
+  padding-bottom: var(--space-3);
+  border-bottom: 2px dashed currentColor;
+  font-family: var(--font-text);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  text-transform: none;
+}
+
+.contact__actions:empty {
+  display: none;
+}
+
+.contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.btn--accent {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--ink);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .contact .btn--ghost:hover,
+  .btn--accent:hover {
+    border-color: var(--paper);
+    background: var(--paper);
+    color: var(--ink);
+  }
+}
+
+.contact__footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+  padding-block: var(--space-5) calc(var(--space-5) + var(--bar-h));
+  border-top: 2px solid rgb(243 241 236 / 0.2);
+  font-size: var(--text-sm);
+}
+
+.contact__top {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 2.75rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contact__top svg {
+  width: 1em;
+  height: 1em;
+}

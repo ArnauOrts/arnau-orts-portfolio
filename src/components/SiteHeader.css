@@ -1,0 +1,167 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--paper);
+  border-bottom: 2px solid var(--ink);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  min-height: var(--header-h);
+}
+
+.site-header__brand {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 800;
+  font-stretch: 125%;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.site-header__nav {
+  display: none;
+}
+
+.site-header__nav ul {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.site-header__nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding-inline: var(--space-3);
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 160ms ease;
+}
+
+/* The section being read: an ink rule under an accent band, legible without the colour. */
+.site-header__nav a[aria-current] {
+  font-weight: 700;
+  box-shadow:
+    inset 0 -3px 0 var(--ink),
+    inset 0 -8px 0 var(--accent);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .site-header__nav a:hover {
+    background: var(--accent);
+  }
+}
+
+.site-header__tools {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.site-header__action {
+  display: none;
+  min-height: 2.75rem;
+  padding-inline: var(--space-4);
+  font-size: var(--text-sm);
+}
+
+.locale-switch {
+  display: flex;
+  border: 2px solid var(--ink);
+}
+
+.locale-switch__option {
+  min-width: 2.75rem;
+  min-height: 2.5rem;
+  border: 0;
+  background: none;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease;
+}
+
+.locale-switch__option[aria-pressed='true'] {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .locale-switch__option[aria-pressed='false']:hover {
+    background: var(--accent);
+  }
+}
+
+/* Phones and tablets: the sections sit in an ink bar under the thumb; contact is always one tap away. */
+.mobile-bar {
+  position: fixed;
+  inset: auto 0 0;
+  z-index: 20;
+  padding-bottom: env(safe-area-inset-bottom);
+  border-top: 2px solid var(--ink);
+  background: var(--ink);
+}
+
+.mobile-bar ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.mobile-bar a {
+  display: grid;
+  place-items: center;
+  min-height: var(--bar-h);
+  padding-inline: var(--space-1);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--paper);
+  text-align: center;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-bar li:last-child a {
+  background: var(--paper);
+  color: var(--ink);
+  font-weight: 700;
+}
+
+/* The accent appears only where it means "you are here". */
+.mobile-bar a[aria-current] {
+  font-weight: 700;
+  box-shadow: inset 0 4px 0 var(--accent);
+}
+
+.mobile-bar a:focus-visible {
+  outline-color: var(--accent);
+  outline-offset: -4px;
+}
+
+@media (min-width: 64rem) {
+  .mobile-bar {
+    display: none;
+  }
+
+  .site-header__nav {
+    display: block;
+  }
+
+  .site-header__action {
+    display: inline-flex;
+  }
+}
+
+/* Between 64rem and 80rem the name lives in the page title; the header keeps sections and contact. */
+@media (min-width: 64rem) and (max-width: 79.99rem) {
+  .site-header__brand {
+    display: none;
+  }
+}
